@@ -492,3 +492,10 @@ module: {
 -------- 华丽的分割线 --------
 
 ## 引入 Redux
+```bash
+npm i redux react-redux
+```
+
+https://www.redux.org.cn/docs/basics/ExampleTodoList.html
+
+

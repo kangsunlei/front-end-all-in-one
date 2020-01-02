@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { ItemObject } from 'fe';
 
 interface ItemProps {
     item: ItemObject,
