@@ -483,6 +483,12 @@ module: {
     ...
 ```
 
+在src下新建`fe.d.ts`作为类型声明文件，在`package.json`中新增`"types": "fe.d.ts"`指明声明文件文件名。
+
 至此，一个基于webpack，React，TypeScript，Sass的前端项目搭建工作已经完成了一大半。
 
 后面还会加入Redux，Redux-saga等。
+
+-------- 华丽的分割线 --------
+
+## 引入 Redux
