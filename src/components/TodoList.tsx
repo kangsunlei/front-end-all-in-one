@@ -1,10 +1,11 @@
 import * as React from 'react';
-import Item from './Item';
+import Item from './TodoItem';
 import { connect } from 'react-redux';
-import { AppProps, ItemObject } from 'fe';
+import { TodoListProps, ItemObject } from 'fe';
 import { addTodo, deleteTodo } from '../actions';
+import { withRouter } from 'react-router-dom';
 
-class App extends React.Component<AppProps> {
+class TodoList extends React.Component<TodoListProps> {
     private input = React.createRef<HTMLInputElement>();
 
     handleAdd = () => {
@@ -14,6 +15,7 @@ class App extends React.Component<AppProps> {
             return;
         }
         dispatch(addTodo(input.value));
+        input.value = '';
     }
 
     handleDelete = (e: React.MouseEvent) => {
@@ -46,4 +48,4 @@ const mapStateToProps = (state: ItemObject[]) => {
     }
 }
 
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps)(TodoList));

@@ -6,9 +6,11 @@ module.exports = WebpackMerge(webpackConfig, {
     mode: 'development',
     devtool: 'cheap-module-eval-source-map',
     devServer: {
+        historyApiFallback: true,
         port: 3000,
         hot: true,
-        contentBase: '../dist'
+        contentBase: '../dist',
+        https: true
     },
     plugins: [
         new Webpack.HotModuleReplacementPlugin()

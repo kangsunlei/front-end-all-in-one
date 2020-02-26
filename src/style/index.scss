@@ -32,3 +32,38 @@
         }
     }
 }
+
+.drag-section {
+    position: relative;
+    margin: 50px;
+    border: 1px solid #ddd;
+
+    .drag-item {
+        height: 40px;
+        line-height: 40px;
+        padding: 0 10px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #5ff;
+        }
+
+        &.selected {
+            background-color: #55f;
+        }
+    }
+
+    .fake-item {
+        position: absolute;
+        width: 100px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        border: 1px solid #ff0;
+        display: none;
+
+        &.show {
+            display: block;
+        }
+    }
+}
