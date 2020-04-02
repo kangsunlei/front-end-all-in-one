@@ -6,6 +6,10 @@ interface TodoListProps {
     items: ItemObject[]
 }
 
+interface StoreObject {
+    todos: ItemObject[]
+}
+
 interface ItemObject {
     name: string,
     create: number

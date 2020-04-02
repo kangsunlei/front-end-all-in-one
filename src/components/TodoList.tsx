@@ -1,12 +1,16 @@
 import * as React from 'react';
 import Item from './TodoItem';
 import { connect } from 'react-redux';
-import { TodoListProps, ItemObject } from 'fe';
-import { addTodo, deleteTodo } from '../actions';
+import { TodoListProps, StoreObject } from 'fe';
+import { addTodo, deleteTodo, fetchTodos } from '../model/actions';
 import { withRouter } from 'react-router-dom';
 
 class TodoList extends React.Component<TodoListProps> {
     private input = React.createRef<HTMLInputElement>();
+
+    componentDidMount() {
+        this.props.dispatch(fetchTodos());
+    }
 
     handleAdd = () => {
         const { dispatch } = this.props;
@@ -42,9 +46,9 @@ class TodoList extends React.Component<TodoListProps> {
     }
 }
 
-const mapStateToProps = (state: ItemObject[]) => {
+const mapStateToProps = (state: StoreObject) => {
     return {
-        items: state
+        items: state.todos
     }
 }
 

@@ -1,3 +1,9 @@
+export const fetchTodos = () => {
+    return {
+        type: 'FETCH_TODOS'
+    }
+}
+
 export const addTodo = (text: string) => {
     return {
         type: 'ADD_TODO',

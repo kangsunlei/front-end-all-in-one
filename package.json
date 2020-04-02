@@ -24,6 +24,7 @@
     "file-loader": "^5.0.2",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.9.0",
+    "mockjs": "^1.1.0",
     "node-sass": "^4.13.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
@@ -40,6 +41,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "@types/mockjs": "^1.0.2",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
     "@types/react-redux": "^7.1.5",
@@ -49,7 +51,8 @@
     "react-dom": "^16.12.0",
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "redux-saga": "^1.1.3"
   },
   "types": "./src/fe.d.ts"
 }

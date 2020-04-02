@@ -9,8 +9,7 @@ module.exports = WebpackMerge(webpackConfig, {
         historyApiFallback: true,
         port: 3000,
         hot: true,
-        contentBase: '../dist',
-        https: true
+        contentBase: '../dist'
     },
     plugins: [
         new Webpack.HotModuleReplacementPlugin()

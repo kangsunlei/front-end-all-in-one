@@ -2,8 +2,7 @@ import { ItemObject } from 'fe';
 
 interface Action {
     type: string,
-    text?: string,
-    index?: number
+    [propName: string]: any
 }
 
 const todos = (state: ItemObject[] = [], action: Action) => {
@@ -17,6 +16,9 @@ const todos = (state: ItemObject[] = [], action: Action) => {
         case "DELETE_TODO":
             state.splice(action.index, 1);
             return [...state];
+
+        case "FETCH_TODOS_SUCCEEDED":
+            return action.todos;
     
         default:
             return state;
