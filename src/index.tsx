@@ -42,12 +42,8 @@ ReactDOM.render(<Provider store={store}>
     <Router>
         <Switch>
             <Redirect exact from='/' to='/todo' />
-            <Route path='/todo'>
-                <TodoList />
-            </Route>
-            <Route path='/drag'>
-                <DragTest />
-            </Route>
+            <Route path='/todo' component={TodoList} />
+            <Route path='/drag' component={DragTest} />
         </Switch>
     </Router>
 </Provider>, document.getElementById('app'));
