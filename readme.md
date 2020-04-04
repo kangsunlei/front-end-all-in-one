@@ -672,12 +672,19 @@ npm i redux-saga
 使用 redux-saga 中间件将 Saga 与 Redux Store 建立连接
 
 ```js
-import createSagaMiddleware from 'redux-saga'
+import createSagaMiddleware from 'redux-saga';
 import todosSaga from './model/sagas/todos';
 
+const sagaMiddleware = createSagaMiddleware();
 const store = createStore(rootReducer, applyMiddleware(logger, sagaMiddleware));
 
 // then run the saga
 sagaMiddleware.run(todosSaga);
 ...
 ```
+
+## 引入 react-router
+```bash
+npm i react-router
+```
+
