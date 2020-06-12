@@ -4,14 +4,14 @@ export const fetchTodos = () => {
     }
 }
 
-export const addTodo = (text: string) => {
+export const addTodo = (text) => {
     return {
         type: 'ADD_TODO',
         text
     }
 }
 
-export const deleteTodo = (index: number) => {
+export const deleteTodo = (index) => {
     return {
         type: 'DELETE_TODO',
         index

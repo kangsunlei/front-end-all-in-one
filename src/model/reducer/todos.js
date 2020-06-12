@@ -1,11 +1,4 @@
-import { ItemObject } from 'fe';
-
-interface Action {
-    type: string,
-    [propName: string]: any
-}
-
-const todos = (state: ItemObject[] = [], action: Action) => {
+const todos = (state = [], action) => {
     switch (action.type) {
         case "ADD_TODO":
             return [{

@@ -1,13 +1,6 @@
 import * as React from 'react';
-import { ItemObject } from 'fe';
 
-interface ItemProps {
-    item: ItemObject,
-    index: number,
-    handleDelete: (event: React.MouseEvent) => void
-}
-
-const Item = function(props: ItemProps) {
+const Item = function(props) {
 
     return (
         <li className="item">

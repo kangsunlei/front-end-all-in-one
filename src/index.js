@@ -1,8 +1,10 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers, applyMiddleware, Action, MiddlewareAPI } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga'
 import TodoList from './components/TodoList';
 import DragTest from './components/DragTest';
@@ -15,8 +17,8 @@ const rootReducer = combineReducers({
     todos
 });
 
-function logger({ getState }: MiddlewareAPI) {
-    return (next: Function) => (action: Action) => {
+function logger({ getState }) {
+    return (next) => (action) => {
         console.log('will dispatch', action)
 
         // 调用 middleware 链中下一个 middleware 的 dispatch。

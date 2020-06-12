@@ -2,16 +2,19 @@ import * as React from 'react';
 import DragItem from './DragItem';
 
 class DragTest extends React.Component {
-    readonly state = {
-        count: 0,
-        items: [1,2,3,4,5,6,7,8,9],
-        clientX: 0,
-        clientY: 0,
-        mouseIsDown: false,
-        mouseIsMove: false
+    constructor() {
+        super();
+        this.state = {
+            count: 0,
+            items: [1,2,3,4,5,6,7,8,9],
+            clientX: 0,
+            clientY: 0,
+            mouseIsDown: false,
+            mouseIsMove: false
+        };
     }
 
-    handleChangeCount = (delta: number) => {
+    handleChangeCount = (delta) => {
         this.setState({
             count: this.state.count + delta
         });
@@ -24,7 +27,7 @@ class DragTest extends React.Component {
         console.log('mouseDown');
     }
 
-    handleMouseMove = (e: React.MouseEvent) => {
+    handleMouseMove = (e) => {
         if (this.state.mouseIsDown) {
             this.setState({
                 mouseIsMove: true,

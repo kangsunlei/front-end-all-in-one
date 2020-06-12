@@ -1,21 +1,19 @@
 import * as React from 'react';
 
-interface DragItemProps {
-    index: number,
-    onItemSelect: (delta: number) => void
-}
-
-class DragItem extends React.Component<DragItemProps> {
-    readonly state = {
-        selected: false
+class DragItem extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            selected: false
+        };
     }
 
-    handleMouseDown = (e: React.MouseEvent) => {
+    handleMouseDown = (e) => {
         this.handleTriggerSelect();
         console.log(e);
     }
 
-    handleMouseUp = (e: React.MouseEvent) => {
+    handleMouseUp = (e) => {
         console.log('get target');
     }
 

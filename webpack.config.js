@@ -6,27 +6,22 @@ const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
     entry: {
-        app: path.resolve(__dirname, './src/index.tsx')
+        app: path.resolve(__dirname, './src/index.js')
     },
     output: {
         filename: devMode ? '[name].js' : '[name].[hash:8].js',
         path: path.resolve(__dirname, './dist')
     },
     resolve: {
-        // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [".ts", ".tsx", ".js", ".json"]
+        extensions: [".jsx", ".js", ".json"]
     },
     module: {
         rules: [{
-            test: /\.js$/,
+            test: /\.(js|jsx)$/,
             use: {
                 loader: 'babel-loader'
             },
             exclude: /node_modules/
-        },
-        { 
-            test: /\.tsx?$/,
-            loader: "ts-loader"
         },
         {
             test: /\.scss$/,
