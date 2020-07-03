@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import DragItem from './DragItem';
 
 class DragTest extends React.Component {

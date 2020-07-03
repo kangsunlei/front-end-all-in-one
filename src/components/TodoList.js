@@ -1,17 +1,34 @@
-import * as React from 'react';
+import React, { Component } from 'react';
 import Item from './TodoItem';
 import { connect } from 'react-redux';
 import { addTodo, deleteTodo, fetchTodos } from '../model/actions';
 import { withRouter } from 'react-router-dom';
 
-class TodoList extends React.Component {
+class TodoList extends Component {
+
+    state = {
+        count: 1
+    }
+
     constructor() {
         super();
         this.input = React.createRef();
     }
 
+    componentDidCatch(...args) {
+        console.log(args);
+    }
+
     componentDidMount() {
+        console.log(this.props);
+        document.addEventListener('mouseup', () => {
+            console.log('document');
+        });
         this.props.dispatch(fetchTodos());
+    }
+
+    componentDidUpdate() {
+        console.log('componentDidUpdate');
     }
 
     handleAdd = () => {
@@ -31,12 +48,14 @@ class TodoList extends React.Component {
     }
 
     render() {
+        console.log('render', this.state);
         const { items } = this.props;
+
         return (
-            <div className="wrapper">
+            <div className="wrapper" onMouseUp={() => { console.log('wapper'); }}>
                 <div className="todo-list">
                     <div className="input-box">
-                        <input ref={this.input} type="text"/>
+                        <input ref={this.input} type="text" />
                         <button onClick={this.handleAdd}>add</button>
                     </div>
                     <ul>
@@ -48,10 +67,11 @@ class TodoList extends React.Component {
     }
 }
 
+
 const mapStateToProps = (state) => {
     return {
         items: state.todos
-    }
-}
+    };
+};
 
 export default withRouter(connect(mapStateToProps)(TodoList));

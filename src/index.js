@@ -5,9 +5,10 @@ import "regenerator-runtime/runtime";
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import createSagaMiddleware from 'redux-saga'
+import createSagaMiddleware from 'redux-saga';
 import TodoList from './components/TodoList';
 import DragTest from './components/DragTest';
+import Meeting from './components/Meeting';
 import todos from './model/reducer/todos';
 import todosSaga from './model/sagas/todos';
 
@@ -19,23 +20,23 @@ const rootReducer = combineReducers({
 
 function logger({ getState }) {
     return (next) => (action) => {
-        console.log('will dispatch', action)
+        console.log('will dispatch', action);
 
         // 调用 middleware 链中下一个 middleware 的 dispatch。
-        let returnValue = next(action)
+        let returnValue = next(action);
 
-        console.log('state after dispatch', getState())
+        console.log('state after dispatch', getState());
 
         // 一般会是 action 本身，除非
         // 后面的 middleware 修改了它。
-        return returnValue
-    }
+        return returnValue;
+    };
 }
 
 // create the saga middleware
-const sagaMiddleware = createSagaMiddleware()
+const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(rootReducer, applyMiddleware(logger, sagaMiddleware));
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 
 // then run the saga
 sagaMiddleware.run(todosSaga);
@@ -46,6 +47,7 @@ ReactDOM.render(<Provider store={store}>
             <Redirect exact from='/' to='/todo' />
             <Route path='/todo' component={TodoList} />
             <Route path='/drag' component={DragTest} />
+            <Route path='/meeting' component={Meeting} />
         </Switch>
     </Router>
 </Provider>, document.getElementById('app'));

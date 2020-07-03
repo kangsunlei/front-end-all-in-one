@@ -1,11 +1,10 @@
-import { call, put, takeEvery/*, takeLatest*/ } from 'redux-saga/effects'
-import Api from '../api'
+import { call, put, takeEvery/*, takeLatest*/ } from 'redux-saga/effects';
+import Api from '../api';
 
 // worker Saga : 将在 FETCH_TODOS action 被 dispatch 时调用
 function* fetchTodos() {
   try {
     const todos = yield call(Api.fetchTodos);
-    console.log(todos);
     yield put({ type: "FETCH_TODOS_SUCCEEDED", todos: todos });
   } catch (e) {
     yield put({ type: "FETCH_TODOS_FAILED", message: e.message });
