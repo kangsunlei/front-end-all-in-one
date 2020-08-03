@@ -9,6 +9,7 @@ import createSagaMiddleware from 'redux-saga';
 import TodoList from './components/TodoList';
 import DragTest from './components/DragTest';
 import Meeting from './components/Meeting';
+import Draft from './components/Draft';
 import todos from './model/reducer/todos';
 import todosSaga from './model/sagas/todos';
 
@@ -48,6 +49,7 @@ ReactDOM.render(<Provider store={store}>
             <Route path='/todo' component={TodoList} />
             <Route path='/drag' component={DragTest} />
             <Route path='/meeting' component={Meeting} />
+            <Route path='/draft' component={Draft} />
         </Switch>
     </Router>
 </Provider>, document.getElementById('app'));

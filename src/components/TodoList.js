@@ -3,6 +3,7 @@ import Item from './TodoItem';
 import { connect } from 'react-redux';
 import { addTodo, deleteTodo, fetchTodos } from '../model/actions';
 import { withRouter } from 'react-router-dom';
+import { hot } from 'react-hot-loader/root';
 
 class TodoList extends Component {
 
@@ -20,10 +21,6 @@ class TodoList extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props);
-        document.addEventListener('mouseup', () => {
-            console.log('document');
-        });
         this.props.dispatch(fetchTodos());
     }
 
@@ -48,7 +45,6 @@ class TodoList extends Component {
     }
 
     render() {
-        console.log('render', this.state);
         const { items } = this.props;
 
         return (
@@ -74,4 +70,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default withRouter(connect(mapStateToProps)(TodoList));
+export default withRouter(connect(mapStateToProps)(hot(TodoList)));

@@ -33,6 +33,14 @@ module.exports = {
                 "sass-loader" // 将 Sass 编译成 CSS，默认使用 Node Sass
             ]
         },
+        {
+            test: /\.css$/,
+            use: [
+                // "style-loader", // 将 JS 字符串生成为 style 节点
+                devMode ? "style-loader" : MiniCssExtractPlugin.loader,
+                "css-loader", // 将 CSS 转化成 CommonJS 模块
+            ]
+        },
         /*{
             test: /\.(jpe?g|png|gif)$/i, //图片文件
             use: [
